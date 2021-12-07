@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<h1>Hello there, </h1>
+
+<p id="demo">Your location is: {{lat}}, {{lng}}</p>
+
+<script>
+
+function getLocation() {
+  if (navigator.geolocation) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+
+    // some coordinates
+    var coordinates = {
+        'lat': position.coords.latitude,
+        'lng': position.coords.longitude
+    }
+
+    // POST
+    fetch('/', {
+
+        // Declare what type of data we're sending
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        method: 'POST',
+
+        // A JSON payload
+        body: JSON.stringify(coordinates)
+    })
+}
+
+getLocation()
+</script>
+
+
