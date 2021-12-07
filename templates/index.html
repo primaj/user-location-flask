@@ -6,8 +6,8 @@
 
 <script>
 
+
 function getLocation() {
-  if (navigator.geolocation) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
@@ -24,7 +24,7 @@ function showPosition(position) {
     }
 
     // POST
-    fetch('/', {
+    fetch('/get_user_location', {
 
         // Declare what type of data we're sending
         headers: {

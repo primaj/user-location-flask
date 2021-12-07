@@ -12,7 +12,9 @@ def index():
 # gets the user location and stores in the session dictionary
 @app.route('/get_user_location', methods=['POST'])
 def get_user_location():
-    session['user_coords'] = request.get_json()
+    data = request.get_json()
+    session['user_coords'] = data
+    return data
 
 
 if __name__ == "__main__":
